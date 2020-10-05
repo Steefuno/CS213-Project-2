@@ -1,20 +1,42 @@
+/**
+ * This class represents an account's profile with a first and last name
+ * @author Steven Nguyen, Julian Romero
+ */
 public class Profile {
 	private String fname;
 	private String lname;
 	
+	/**
+	 * Constructs a profile
+	 * @param _fname	the first name
+	 * @param _lname	the last name
+	 */
 	public Profile(String _fname, String _lname) {
 		this.fname = _fname;
 		this.lname = _lname;
 	}
 	
+	/**
+	 * Gets the first name
+	 * @return	the first name
+	 */
 	public String getFName() {
 		return this.fname;
 	}
 	
+	/**
+	 * Gets the last name
+	 * @return	the last name
+	 */
 	public String getLName() {
 		return this.lname;
 	}
 	
+	/**
+	 * Gets if an object is equal to this profile
+	 * @return	true if the other object is a profile with the same name, false otherwise
+	 * @overload
+	 */
 	public boolean equals(Object o) {
 		if (o instanceof Profile) {
 			Profile profile = (Profile) o;
@@ -26,6 +48,11 @@ public class Profile {
 		}
 	}
 	
+	/**
+	 * Compares this profile with another by last name
+	 * @param profile	the profile to compare to
+	 * @return			0 if the names are equal, 1 if this profile is after profile, -1 if this profile is before profile
+	 */
 	public int compareTo(Profile profile) {
 		int lnameComparison = this.lname.compareTo(profile.lname);
 		if (lnameComparison == 0) {
@@ -36,10 +63,19 @@ public class Profile {
 		}
 	}
 	
+	/**
+	 * Gets the string representation of this profile
+	 * Format: "[First Name] [Last Name]"
+	 * @return	the string representation
+	 */
 	public String toString() {
 		return String.format("%s %s", this.fname, this.lname);
 	}
 	
+	/**
+	 * Testmain - tests the methods in this class
+	 * @param args	unused
+	 */
 	public static void main(String[] args) {
 		Profile p1 = new Profile("B", "B");
 		Profile p2 = new Profile("B", "A");
