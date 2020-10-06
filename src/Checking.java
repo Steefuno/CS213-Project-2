@@ -77,34 +77,4 @@ public class Checking extends Account {
 			return false;
 		}
 	}
-	
-	/**
-	 * Testmain - tests methods used in AccountDatabase.java
-	 * @param args	unused
-	 */
-	public static void main(String[] args) {
-		Checking c1 = new Checking("B", "B", 100, 1, 1, 2000, true);
-		Checking c2 = new Checking("A", "A", 150, 1, 1, 2000, false);
-		Checking c3 = new Checking("B", "B", 1501, 1, 1, 2000, false);
-		
-		System.out.println(c1);
-		System.out.println(c2);
-		System.out.println(c3);
-		
-		System.out.println("c1:\n\tbalance: " + c1.getBalance() + "\n\tinterest: " + c1.monthlyInterest() + "\n\tfee: " + c1.monthlyFee());
-		System.out.println("c2:\n\tbalance: " + c1.getBalance() + "\n\tinterest: " + c2.monthlyInterest() + "\n\tfee: " + c2.monthlyFee());
-		System.out.println("c3:\n\tbalance: " + c1.getBalance() + "\n\tinterest: " + c3.monthlyInterest() + "\n\tfee: " + c3.monthlyFee());
-		
-		if (c1.equals(c2)) {
-			System.out.println("Unexpected: c1 == c2");
-		} else {
-			System.out.println("Expected: c1 != c2");
-		}
-		
-		if (c1.equals(c3)) {
-			System.out.println("Expected: c1 == c3");
-		} else {
-			System.out.println("Unexpected: c1 != c3");
-		}
-	}
 }

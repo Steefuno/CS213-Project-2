@@ -76,41 +76,4 @@ public class MoneyMarket extends Account {
 			return false;
 		}
 	}
-	
-	/**
-	 * Testmain - tests the methods in this class
-	 * @param args	unused
-	 */
-	public static void main(String[] args) {
-		MoneyMarket m1 = new MoneyMarket("B", "B", 100, 1, 1, 2000);
-		MoneyMarket m2 = new MoneyMarket("A", "A", 150, 1, 1, 2000);
-		MoneyMarket m3 = new MoneyMarket("B", "B", 100, 1, 1, 2000);
-		MoneyMarket m4 = new MoneyMarket("B", "B", 2500, 1, 1, 2000);
-		
-		for (int i = 0; i <= maxWithdrawals; i++) {
-			m3.debit(100);
-		}
-		
-		System.out.println(m1);
-		System.out.println(m2);
-		System.out.println(m3);
-		System.out.println(m4);
-		
-		System.out.println("m1:\n\tbalance: " + m1.getBalance() + "\n\tinterest: " + m1.monthlyInterest() + "\n\tfee: " + m1.monthlyFee());
-		System.out.println("m2:\n\tbalance: " + m2.getBalance() + "\n\tinterest: " + m2.monthlyInterest() + "\n\tfee: " + m2.monthlyFee());
-		System.out.println("m3:\n\tbalance: " + m3.getBalance() + "\n\tinterest: " + m3.monthlyInterest() + "\n\tfee: " + m3.monthlyFee());
-		System.out.println("m4:\n\tbalance: " + m4.getBalance() + "\n\tinterest: " + m4.monthlyInterest() + "\n\tfee: " + m4.monthlyFee());
-		
-		if (m1.equals(m2)) {
-			System.out.println("Unexpected: m1 == m2");
-		} else {
-			System.out.println("Expected: m1 != m2");
-		}
-
-		if (m1.equals(m3)) {
-			System.out.println("Expected: m1 == m3");
-		} else {
-			System.out.println("Unexpected: m1 != m3");
-		}
-	}
 }
