@@ -10,6 +10,11 @@ public class MoneyMarket extends Account {
 	private static final double waiveBalanceMinimum = 2500;
 	private static final double annualInterestRate = .0065;
 	
+	private static final int fillerBalance = 0;
+	private static final int fillerMonth = 1;
+	private static final int fillerDay = 1;
+	private static final int fillerYear = 2000;
+	
 	/**
 	 * Constructs a money market account
 	 * @param _fname	the first name of the profile
@@ -21,6 +26,16 @@ public class MoneyMarket extends Account {
 	 */
 	public MoneyMarket(String _fname, String _lname, double _balance, int _month, int _day, int _year) {
 		super(_fname, _lname, _balance, _month, _day, _year);
+	}
+	
+	/**
+	 * Constructs a temporary money market account used for comparisons
+	 * @param _fname	the first name of the profile
+	 * @param _lname	the last name of the profile
+	 * @overload
+	 */
+	public MoneyMarket(String _fname, String _lname) {
+		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
 	}
 	
 	/**

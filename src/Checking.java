@@ -8,6 +8,12 @@ public class Checking extends Account {
 	private static final double monthlyFee = 25;
 	private static final double waiveBalanceMinimum = 1500;
 	private static final double annualInterestRate = .0005;
+
+	private static final int fillerBalance = 0;
+	private static final int fillerMonth = 1;
+	private static final int fillerDay = 1;
+	private static final int fillerYear = 2000;
+	private static final boolean fillerDirectDeposit = false;
 	
 	/**
 	 * Constructs a checking account
@@ -22,6 +28,17 @@ public class Checking extends Account {
 	public Checking(String _fname, String _lname, double _balance, int _month, int _day, int _year, boolean _directDeposit) {
 		super(_fname, _lname, _balance, _month, _day, _year);
 		this.directDeposit = _directDeposit;
+	}
+	
+	/**
+	 * Constructs a temporary checking account used for comparisons
+	 * @param _fname	the first name of the profile
+	 * @param _lname	the last name of the profile
+	 * @overload
+	 */
+	public Checking(String _fname, String _lname) {
+		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
+		this.directDeposit = fillerDirectDeposit;
 	}
 	
 	/**

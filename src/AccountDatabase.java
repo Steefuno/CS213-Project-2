@@ -358,21 +358,21 @@ public class AccountDatabase {
 		}
 		
 		// Tests if depositing into an account works
-		if (db.deposit(new Checking("A", "A", 0, 1, 1, 2000, false), 50) == true) {
+		if (db.deposit(new Checking("A", "A"), 50) == true) {
 			System.out.println("Expected: deposited into A A Checking");
 		} else {
 			System.out.println("Unexpected: cannot deposit into A A Checking");
 		}
 		
 		// Tests if depositing into an invalid account is invalid
-		if (db.deposit(new Checking("Z", "Z", 0, 1, 1, 2000, false), 50) == true) {
+		if (db.deposit(new Checking("Z", "Z"), 50) == true) {
 			System.out.println("Unexpected: deposited into account that does not exist");
 		} else {
 			System.out.println("Expected: cannot deposit into account that does not exists");
 		}
 		
 		// Tests if withdrawing from an invalid account is invalid
-		int withdrawResult = db.withdrawal(new Checking("Z", "Z", 0, 1, 1, 2000, false), 100);
+		int withdrawResult = db.withdrawal(new Checking("Z", "Z"), 100);
 		if (withdrawResult == -1) {
 			System.out.println("Expected: cannot withdraw from account that does not exist");
 		} else {
@@ -380,7 +380,7 @@ public class AccountDatabase {
 		}
 		
 		// Tests if withdrawing from an account with insufficient balance is invalid
-		withdrawResult = db.withdrawal(new Savings("C", "C", 0, 1, 1, 2000, false), 101);
+		withdrawResult = db.withdrawal(new Savings("C", "C"), 101);
 		if (withdrawResult == 1) {
 			System.out.println("Expected: account C C Savings does not have enough balance");
 		} else {
@@ -388,7 +388,7 @@ public class AccountDatabase {
 		}
 		
 		// Tests if withdrawing from a valid account is valid
-		withdrawResult = db.withdrawal(new Savings("C", "C", 0, 1, 1, 2000, false), 100);
+		withdrawResult = db.withdrawal(new Savings("C", "C"), 100);
 		if (withdrawResult == 0) {
 			System.out.println("Expected: withdrew 100 from account C C Savings");
 		} else {
@@ -401,21 +401,21 @@ public class AccountDatabase {
 		//db.printByDateOpen();
 		
 		// Tests removing an account with a matching name, but different account type is invalid
-		if (db.remove(new Savings("A", "A", 100, 2, 1, 2001, false)) == true) {
+		if (db.remove(new Savings("A", "A")) == true) {
 			System.out.println("Unexpected: removed A A Savings that shouldn't exist");
 		} else {
 			System.out.println("Expected: cannot remove an account that doesn't exist");
 		}
 		
 		// Tests if removing a valid account is valid
-		if (db.remove(new Checking("A", "A", 100, 2, 1, 2001, false)) == true) {
+		if (db.remove(new Checking("A", "A")) == true) {
 			System.out.println("Expected: removed A A Checking");
 		} else {
 			System.out.println("Unexpected: cannot remove A A Checking");
 		}
 
 		// Tests if removing a removed account is valid
-		if (db.remove(new Checking("A", "A", 100, 2, 1, 2001, false)) == true) {
+		if (db.remove(new Checking("A", "A")) == true) {
 			System.out.println("Unexpected: removed A A Checking that shouldn't exist");
 		} else {
 			System.out.println("Expected: cannot remove an account that doesn't exist");

@@ -10,6 +10,12 @@ public class Savings extends Account {
 	private static final double waiveBalanceMinimum = 300;
 	private static final double annualInterestRate = .0025;
 	private static final double loyalAnnualInterestRate = .0035;
+
+	private static final int fillerBalance = 0;
+	private static final int fillerMonth = 1;
+	private static final int fillerDay = 1;
+	private static final int fillerYear = 2000;
+	private static final boolean fillerIsLoyal = false;
 	
 	/**
 	 * Constructs a savings account
@@ -24,6 +30,17 @@ public class Savings extends Account {
 	public Savings(String _fname, String _lname, double _balance, int _month, int _day, int _year, boolean _isLoyal) {
 		super(_fname, _lname, _balance, _month, _day, _year);
 		this.isLoyal = _isLoyal;
+	}
+	
+	/**
+	 * Constructs a temporary savings account used for comparisons
+	 * @param _fname	the first name of the profile
+	 * @param _lname	the last name of the profile
+	 * @overload
+	 */
+	public Savings(String _fname, String _lname) {
+		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
+		this.isLoyal = fillerIsLoyal;
 	}
 
 	/**
