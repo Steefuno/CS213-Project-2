@@ -77,7 +77,7 @@ public class Checking extends Account {
 	 */
 	public String toString() {
 		if (this.directDeposit) {
-			return String.format("*%s%s%s*", "Checking", super.toString(), "direct deposit account");
+			return String.format("*%s%s*%s*", "Checking", super.toString(), "direct deposit account");
 		} else {
 			return String.format("*%s%s", "Checking", super.toString());
 		}

@@ -76,7 +76,7 @@ public abstract class Account {
 		DecimalFormat formattedPrice = new DecimalFormat(priceFormat);
 		formattedPrice.setMinimumFractionDigits(2);
 		
-		return String.format("*%s* %s*%s*", this.holder, formattedPrice.format(this.balance), this.dateOpen);
+		return String.format("*%s* %s*%s", this.holder, formattedPrice.format(this.balance), this.dateOpen);
 	}
 
 	/**

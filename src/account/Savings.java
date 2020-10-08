@@ -84,7 +84,7 @@ public class Savings extends Account {
 	 */
 	public String toString() {
 		if (this.isLoyal) {
-			return String.format("*%s%s%s*", "Savings", super.toString(), "special savings account");
+			return String.format("*%s%s*%s*", "Savings", super.toString(), "special savings account");
 		} else {
 			return String.format("*%s%s", "Savings", super.toString());
 		}

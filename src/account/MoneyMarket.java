@@ -76,7 +76,7 @@ public class MoneyMarket extends Account {
 	 * @overload
 	 */
 	public String toString() {
-		return String.format("*%s%s%s withdrawals*", "Money Market", super.toString(), this.withdrawals);
+		return String.format("*%s%s*%d withdrawals*", "Money Market", super.toString(), this.withdrawals);
 	}
 	
 	/**
