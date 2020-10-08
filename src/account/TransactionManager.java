@@ -42,7 +42,7 @@ public class TransactionManager {
 	* @param _month	the month of the open date
 	* @param _day the day of the open date
 	* @param _year the year of the open date
-	* @param _directDeposit boolean value whether it is a direct deposit or not
+	* @param _isLoyal boolean value whether it is a direct deposit or not
 	* @return boolean value of whether the saving account was successfully added in the account database
 	*/
 	private boolean openSaving(String _fname, String _lname, double _balance, int _month, int _day, int _year, boolean _isLoyal) {
@@ -147,7 +147,7 @@ public class TransactionManager {
 	* @param _fname	the first name of account
 	* @param _lname the last name of account
 	* @param _withdraw amount being withdrawn from the account
-	* @return boolean value of whether the withdraw was successfully withdrawn from the account
+	* @return int value of whether the withdraw was successfully withdrawn from the account
 	*/
 	private int withdrawChecking(String _fname, String _lname, double _withdraw) {
 		Checking checkingAccount = new Checking(_fname, _lname);
@@ -160,7 +160,7 @@ public class TransactionManager {
 	* @param _fname	the first name of account
 	* @param _lname the last name of account
 	* @param _withdraw amount being withdrawn from the account
-	* @return boolean value of whether the withdraw was successfully withdrawn from the account
+	* @return int value of whether the withdraw was successfully withdrawn from the account
 	*/
 	private int withdrawSaving(String _fname, String _lname, double _withdraw) {
 		Savings savingsAccount = new Savings(_fname, _lname);
@@ -173,7 +173,7 @@ public class TransactionManager {
 	* @param _fname	the first name of account
 	* @param _lname the last name of account
 	* @param _withdraw amount being withdrawn from the account
-	* @return boolean value of whether the withdraw was successfully withdrawn from the account
+	* @return int value of whether the withdraw was successfully withdrawn from the account
 	*/
 	private int withdrawMoneyMarket(String _fname, String _lname, double _withdraw) {
 		MoneyMarket moneyMarketAccount = new MoneyMarket(_fname, _lname);
@@ -183,7 +183,7 @@ public class TransactionManager {
 	
 	/**
 	* converts a string to a double
-	* @param string
+	* @param string a string from the input
 	* @return double value of string or null representing a bad input
 	*/
 	private Double convertStringToDouble(String string) {
@@ -198,7 +198,7 @@ public class TransactionManager {
 	
 	/**
 	* converts a string to an integer
-	* @param string
+	* @param string a string from the input
 	* @return integer value of string or null representing a bad input
 	*/
 	private Integer convertStringToInteger(String string) {
@@ -213,7 +213,7 @@ public class TransactionManager {
 	
 	/**
 	* converts a string to a boolean
-	* @param string
+	* @param string a string from the input
 	* @return boolean value of string or null representing a bad input
 	*/
 	private Boolean convertStringToBoolean(String string) {
@@ -229,7 +229,7 @@ public class TransactionManager {
 	
 	/**
 	* checks that a string is a valid string with no numbers or symbols
-	* @param string
+	* @param string a string from the input
 	* @return String with only letters 
 	*/
 	private String validString(String string) {
@@ -248,7 +248,7 @@ public class TransactionManager {
 	/**
 	* Checks whether or not a string is in a valid date format<br>
 	* Format:  *Month*, *day* ,*year*
-	* @parameter string
+	* @param string a string from the input
 	* @return A valid date format string or null representing a bad format
 	*/
 	private String validDate(String string) {
@@ -286,28 +286,25 @@ public class TransactionManager {
 		
 		//months with 31 days
 		else if((month == november ||month == september || month == june ||month == april ) && day == thirtyFirst) {
-			System.out.println(string + " is not a valid date!");
 			return null;
 		}
 		
 		//handling February
 		else if(month == february && (day == twentyNine || day == thirty || day == thirtyFirst)) {
-			System.out.println(string + " is not a valid date!");
 			return null;
 		}
 		
 		//other date inputs that are not special cases
 		else {
 		
-		Pattern pattern = Pattern.compile("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$");
+		Pattern pattern = Pattern.compile("^(1[0-2]|[1-9])/(3[1]|[12][0-9]|[1-9])/[0-9]{4}$");
 		Matcher matcher = pattern.matcher(string);
 		isValid = matcher.matches();
-		
+		System.out.println(isValid);
 			if(isValid) {
 				return string;
 			}
 			else {
-				System.out.println(string + " is not a valid date!");
 				return null;
 			}
 		}
@@ -315,7 +312,7 @@ public class TransactionManager {
 	
 	/**
 	* handles the user input and output of the transaction manager
-	* @parameter input from user
+	* @param boolean input from user
 	* @return a boolean of whether an invalid command was inputed
 	*/
 	private boolean handleCommand(String input) {
