@@ -246,6 +246,29 @@ public class TransactionManager {
 	}
 	
 	/**
+	* checks the number of inputs to see if they are valid
+	* @param String [] array of args from input
+	* @param int number of arguments present 
+	* @return int the number of arguments present
+	*/
+	private int checkNumberOfInputs(String [] args, int numberOfArguments) {
+		int length = 0;
+		String input;
+		try{
+			
+		    while(length != numberOfArguments){
+		         input = args[length];
+		         length++;     
+		    }
+		}
+		    catch(ArrayIndexOutOfBoundsException e)
+		    {
+		     System.out.println("wrong number of inputs");   
+		    }
+		return length;
+	}
+	
+	/**
 	* Checks whether or not a string is in a valid date format<br>
 	* Format:  *Month*, *day* ,*year*
 	* @param string a string from the input
@@ -286,11 +309,13 @@ public class TransactionManager {
 		
 		//months with 31 days
 		else if((month == november ||month == september || month == june ||month == april ) && day == thirtyFirst) {
+			System.out.println(string + " is not a valid date!");
 			return null;
 		}
 		
 		//handling February
 		else if(month == february && (day == twentyNine || day == thirty || day == thirtyFirst)) {
+			System.out.println(string + " is not a valid date!");
 			return null;
 		}
 		
@@ -304,6 +329,7 @@ public class TransactionManager {
 				return string;
 			}
 			else {
+				System.out.println(string + " is not a valid date!");
 				return null;
 			}
 		}
@@ -311,7 +337,7 @@ public class TransactionManager {
 	
 	/**
 	* handles the user input and output of the transaction manager
-	* @param boolean input from user
+	* @param string input from user
 	* @return a boolean of whether an invalid command was inputed
 	*/
 	private boolean handleCommand(String input) {
@@ -322,6 +348,10 @@ public class TransactionManager {
 		boolean accountExists;
 		boolean moneyDeposited;
 		int accountStatus;
+		int numberOfArgumentsForOCandOS = 6;
+		int numberOfArgumentsForOM = 5;
+		int numberOfArgumentsForClose = 3;
+		int numberOfArgumentsForDepositAndWithdraw = 4;
 		
 		// Checks if a command was inputed
 		if (args.length == 0) {
@@ -333,9 +363,11 @@ public class TransactionManager {
 	
 		switch(command) {
 		case "OC":
-			
+		if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOCandOS) {
+			break;
+		}
 			if (validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null || 
-			validDate(args[4]) == null) {
+			validDate(args[4]) == null || convertStringToBoolean(args[5]) == null){
 				break;
 			}
 			
@@ -354,6 +386,10 @@ public class TransactionManager {
 			break;
 			
 		case "OS":
+			
+			if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOCandOS) {
+				break;
+			}
 			
 			if (validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null || 
 			validDate(args[4]) == null) {
@@ -376,6 +412,10 @@ public class TransactionManager {
 			break;
 			
 		case "OM":
+			if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOM) {
+				break;
+			}
+			
 			
 			if (validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null || 
 			validDate(args[4]) == null) {
@@ -398,6 +438,10 @@ public class TransactionManager {
 			
 		case "CC":
 			
+			if(checkNumberOfInputs(args, numberOfArgumentsForClose) != numberOfArgumentsForClose) {
+				break;
+			}
+			
 			if(validString(args[1]) == null || validString(args[2]) == null) {
 				break;
 			}
@@ -414,6 +458,10 @@ public class TransactionManager {
 			break;
 			
 		case "CS":
+			
+			if(checkNumberOfInputs(args, numberOfArgumentsForClose) != numberOfArgumentsForClose) {
+				break;
+			}
 			
 			if(validString(args[1]) == null || validString(args[2]) == null) {
 				break;
@@ -432,6 +480,10 @@ public class TransactionManager {
 			
 		case "CM":
 			
+			if(checkNumberOfInputs(args, numberOfArgumentsForClose) != numberOfArgumentsForClose) {
+				break;
+			}
+			
 			if(validString(args[1]) == null || validString(args[2]) == null) {
 				break;
 			}
@@ -448,6 +500,9 @@ public class TransactionManager {
 			break;
 			
 		case "DC":
+			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+				break;
+			}
 			
 			if(validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null) {
 				break;
@@ -466,6 +521,10 @@ public class TransactionManager {
 			
 		case "DS":
 			
+			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+				break;
+			}
+			
 			if(validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null) {
 				break;
 			}
@@ -481,6 +540,10 @@ public class TransactionManager {
 			
 			break;
 		case "DM":
+			
+			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+				break;
+			}
 			
 			if(validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null) {
 				break;
@@ -498,6 +561,11 @@ public class TransactionManager {
 			break;
 			
 		case "WC":
+			
+			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+				break;
+			}
+			
 			if(validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null) {
 				break;
 			}
@@ -515,6 +583,14 @@ public class TransactionManager {
 			break;
 			
 		case "WS":
+			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+				break;
+			}
+			
+			if(validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null) {
+				break;
+			}
+			
 			accountStatus = this.withdrawSaving(validString(args[1]), validString(args[2]), convertStringToDouble(args[3]));
 			
 			if(accountStatus == 1) {
@@ -530,6 +606,15 @@ public class TransactionManager {
 			break;
 			
 		case "WM":
+			
+			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+				break;
+			}
+			
+			if(validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null) {
+				break;
+			}
+			
 			accountStatus = this.withdrawMoneyMarket(validString(args[1]), validString(args[2]), convertStringToDouble(args[3]));
 			
 			if(accountStatus == 1) {
