@@ -6,6 +6,12 @@ public class Date implements Comparable<Date> {
 	 private int year;
 	 private int month;
 	 private int day;
+	 
+	 public Date(int month, int day, int year) {
+		 this.month = month;
+		 this.day = day;
+		 this.year = year;
+	 }
 	
 	 public int compareTo(Date date) {
 		 if (date.isValid()) {
@@ -41,4 +47,3 @@ public class Date implements Comparable<Date> {
 		    
 	}	
 }
-
