@@ -37,7 +37,7 @@ public class Savings extends Account {
 	 * Constructs a temporary savings account used for comparisons
 	 * @param _fname	the first name of the profile
 	 * @param _lname	the last name of the profile
-	 * @overload
+	 * @override
 	 */
 	public Savings(String _fname, String _lname) {
 		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
@@ -80,8 +80,8 @@ public class Savings extends Account {
 	 * Format: "*Money Market*[Profile Name]* $[Balance]*[Open Date]*<br>
 	 * appends "special savings account*" at the end if the account is loyal
 	 * @return	the string representation
-	 * @overload
 	 */
+	@Override
 	public String toString() {
 		if (this.isLoyal) {
 			return String.format("*%s%s*%s*", "Savings", super.toString(), "special savings account");
@@ -94,8 +94,8 @@ public class Savings extends Account {
 	 * Gets if this account is equal to an object
 	 * @param o	the object to compare to this account
 	 * @return	true if the object is a savings account with the same name
-	 * @overload
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Savings) {
 			return super.equals(o);

@@ -83,8 +83,8 @@ public abstract class Account {
 	 * Gets if this account is equal to an object
 	 * @param o	the object to compare to this account
 	 * @return	true if the object is an account with the same name
-	 * @overload
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Account) {
 			Account account = (Account) o;

@@ -35,8 +35,8 @@ public class Checking extends Account {
 	 * Constructs a temporary checking account used for comparisons
 	 * @param _fname	the first name of the profile
 	 * @param _lname	the last name of the profile
-	 * @overload
 	 */
+	@Override
 	public Checking(String _fname, String _lname) {
 		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
 		this.directDeposit = fillerDirectDeposit;
@@ -73,8 +73,8 @@ public class Checking extends Account {
 	 * Format: "*Checking*[Profile Name]* $[Balance]*[Open Date]*"<br>
 	 * "direct deposit account*" is appended if the account has direct deposit enabled
 	 * @return	the string representation
-	 * @overload
 	 */
+	@Override
 	public String toString() {
 		if (this.directDeposit) {
 			return String.format("*%s%s*%s*", "Checking", super.toString(), "direct deposit account");
@@ -86,8 +86,8 @@ public class Checking extends Account {
 	/**
 	 * Gets if an object is equal to this checking account
 	 * @return	true if the other object is a checking account with the same name, false otherwise
-	 * @overload
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Checking) {
 			return super.equals(o);

@@ -33,8 +33,8 @@ public class MoneyMarket extends Account {
 	 * Constructs a temporary money market account used for comparisons
 	 * @param _fname	the first name of the profile
 	 * @param _lname	the last name of the profile
-	 * @overload
 	 */
+	@Override
 	public MoneyMarket(String _fname, String _lname) {
 		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
 	}
@@ -42,8 +42,8 @@ public class MoneyMarket extends Account {
 	/**
 	 * Withdraw money
 	 * @param amount	the amount of money to withdraw
-	 * @overload
 	 */
+	@Override
 	public void debit(double amount) {
 		withdrawals++;
 		super.debit(amount);
@@ -73,8 +73,8 @@ public class MoneyMarket extends Account {
 	 * Gets the string representation of this money market account<br>
 	 * Format: "*Money Market*[Profile Name]* $[Balance]*[Open Date]* [Number of withdrawals] withdrawals*
 	 * @return	the string representation
-	 * @overload
 	 */
+	@Override
 	public String toString() {
 		return String.format("*%s%s*%d withdrawals*", "Money Market", super.toString(), this.withdrawals);
 	}
@@ -83,8 +83,8 @@ public class MoneyMarket extends Account {
 	 * Gets if this account is equal to an object
 	 * @param o	the object to compare to this account
 	 * @return	true if the object is a money market account with the same name
-	 * @overload
 	 */
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof MoneyMarket) {
 			return super.equals(o);
