@@ -147,6 +147,7 @@ public class TransactionManager {
 	private boolean handleCommand(String input) {
 		// Splits the input by whitespace
 		String[] args = input.split("\\s+", 0);
+		String [] date;
 		// Checks if a command was inputted
 		if (args.length == 0) {
 			System.out.println("Invalid Command!");
@@ -154,8 +155,8 @@ public class TransactionManager {
 		}
 		
 		String command = args[0];
-
-			String [] date = validDate(args[4]).split("/");
+	
+			
 		
 		
 		
@@ -164,14 +165,17 @@ public class TransactionManager {
 		// Given a command, calls the respective method
 		switch(command) {
 		case "OC":
+			date = validDate(args[4]).split("/");
 			this.openChecking(validString(args[1]), validString(args[2]), convertStringToDouble(args[3]), convertStringToInteger(date[0]), 
 			convertStringToInteger(date[1]), convertStringToInteger(date[2]), convertStringToBoolean(args[4]));
 			break;
 		case "OS":
+			date = validDate(args[4]).split("/");
 			this.openSaving(validString(args[1]), validString(args[2]), convertStringToDouble(args[3]), convertStringToInteger(args[4]), 
 			convertStringToInteger(args[5]), convertStringToInteger(args[6]), convertStringToBoolean(args[4]));
 			break;
 		case "OM":
+			date = validDate(args[4]).split("/");
 			this.openMoneyMarket(args[1], args[2], convertStringToDouble(args[3]), convertStringToInteger(date[0]), 
 			convertStringToInteger(date[1]), convertStringToInteger(date[2]));
 			break;
@@ -218,6 +222,7 @@ public class TransactionManager {
 			return false;
 		default:
 			System.out.printf("Command %s not supported!", command);
+			System.out.println();
 		}
 		
 		// Return true to continue loop in run()
@@ -239,7 +244,4 @@ public class TransactionManager {
 		sc.close();
 		return;
 	}
-	
-	
-
 }
