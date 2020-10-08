@@ -69,6 +69,7 @@ public class AccountDatabase {
 	public boolean remove(Account account) {
 		int accountIndex = this.find(account);
 		if (accountIndex == -1) {
+			System.out.println("Account does not exist.");
 			return false;
 		}
 		
