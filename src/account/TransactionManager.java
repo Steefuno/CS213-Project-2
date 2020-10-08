@@ -300,7 +300,6 @@ public class TransactionManager {
 		Pattern pattern = Pattern.compile("^(1[0-2]|[1-9])/(3[1]|[12][0-9]|[1-9])/[0-9]{4}$");
 		Matcher matcher = pattern.matcher(string);
 		isValid = matcher.matches();
-		System.out.println(isValid);
 			if(isValid) {
 				return string;
 			}
