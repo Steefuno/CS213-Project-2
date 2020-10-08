@@ -18,6 +18,9 @@ public class AccountDatabase {
 		this.size = 0;
 		this.accounts = new Account[5];
 	}
+	public int getsize() {
+		return this.size;
+	}
 
 	/**
 	 * Searches for an account with a given First and Last name
@@ -69,7 +72,6 @@ public class AccountDatabase {
 	public boolean remove(Account account) {
 		int accountIndex = this.find(account);
 		if (accountIndex == -1) {
-			System.out.println("Account does not exist.");
 			return false;
 		}
 		
@@ -259,19 +261,16 @@ public class AccountDatabase {
 	 */
 	public void printByDateOpen() {
 		if (size == 0) {
-			System.out.println("Database is empty.");
 			return;
 		}
 		
 		sortByDateOpen();
 		
-		System.out.println("--Printing statements by last name--");
 		
 		for (int i = 0; i < this.size; i++) {
 			updateAccount(i);
 		}
 		
-		System.out.println("--end of printing--");
 		return;
 	}
 
@@ -280,19 +279,16 @@ public class AccountDatabase {
 	 */
 	public void printByLastName() {
 		if (size == 0) {
-			System.out.println("Database is empty.");
 			return;
 		}
 		
 		sortByLastName();
 		
-		System.out.println("--Printing statements by last name--");
 		
 		for (int i = 0; i < this.size; i++) {
 			updateAccount(i);
 		}
 		
-		System.out.println("--end of printing--");
 		return;
 	}
 
@@ -301,17 +297,14 @@ public class AccountDatabase {
 	 */
 	public void printAccounts() {
 		if (size == 0) {
-			System.out.println("Database is empty.");
 			return;
 		}
 		
-		System.out.println("--Listing accounts in the database--");
 		
 		for (int i = 0; i < this.size; i++) {
 			System.out.println(accounts[i]);
 		}
 		
-		System.out.println("--end of listing--");
 		return;
 	}
 	
