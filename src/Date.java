@@ -38,7 +38,7 @@ public class Date implements Comparable<Date> {
 		Matcher matcher = pattern.matcher(this.toString());
 
 	
-		    if(matcher.find()){ // String doesn't contain any number or symbols
+		    if(matcher.find()){ //string has right format
 		       return true;
 		    }
 		    else {
