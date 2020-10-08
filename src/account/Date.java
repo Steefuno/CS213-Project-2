@@ -100,7 +100,7 @@ public class Date implements Comparable<Date> {
 		//other date inputs that are not special cases
 		else {
 		
-		Pattern pattern = Pattern.compile("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$");
+		Pattern pattern = Pattern.compile("^(1[0-2]|[1-9])/(3[1]|[12][0-9]|[1-9])/[0-9]{4}$");
 		Matcher matcher = pattern.matcher(this.toString());
 		isValid = matcher.matches();
 		
