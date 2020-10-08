@@ -1,3 +1,4 @@
+package account;
 import java.text.DecimalFormat;
 
 /**
@@ -127,7 +128,7 @@ public class AccountDatabase {
 	 * @param startIndex	the start index of accounts to start sorting from
 	 * @param endIndex		the index after the last index of accounts to sort from
 	 */
-	/*private void sortByDateOpenHelper(int startIndex, int endIndex) {
+	private void sortByDateOpenHelper(int startIndex, int endIndex) {
 		int pivotIndex = endIndex - 1;
 		
 		if (pivotIndex <= startIndex)
@@ -167,14 +168,14 @@ public class AccountDatabase {
 		sortByLastNameHelper(startIndex, smallerIndex);
 		sortByLastNameHelper(smallerIndex + 1, endIndex);
 		return;
-	}*/
+	}
 	
 	/**
 	 * Calls sortByDateOpenHelper to recursively sort accounts by date opened
 	 */
-	/*private void sortByDateOpen() {
+	private void sortByDateOpen() {
 		sortByDateOpenHelper(0, size);
-	}*/
+	}
 
 	/**
 	 * Recursively sorts the accounts by last name<br>
@@ -255,7 +256,7 @@ public class AccountDatabase {
 	/**
 	 * Sorts accounts by date opened, updates all the accounts, then outputs them
 	 */
-	/*public void printByDateOpen() {
+	public void printByDateOpen() {
 		if (size == 0) {
 			System.out.println("Database is empty.");
 			return;
@@ -271,7 +272,7 @@ public class AccountDatabase {
 		
 		System.out.println("--end of printing--");
 		return;
-	}*/
+	}
 
 	/**
 	 * Sorts accounts by last name, updates all the accounts, then outputs them

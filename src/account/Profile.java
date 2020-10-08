@@ -1,3 +1,4 @@
+package account;
 /**
  * This class represents an account's profile with a first and last name
  * @author Steven Nguyen, Julian Romero

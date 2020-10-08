@@ -1,3 +1,4 @@
+package account;
 /**
  * This class represents a savings account<br>
  * Checking accounts have a monthly fee of 5, a minimum balance of 300 to waive the fee, and an annual interest rate of .25%<br>

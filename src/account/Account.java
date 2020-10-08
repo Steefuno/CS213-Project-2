@@ -1,3 +1,4 @@
+package account;
 import java.text.DecimalFormat;
 
 /**
@@ -7,7 +8,7 @@ import java.text.DecimalFormat;
 public abstract class Account {
 	private Profile holder;
 	private double balance;
-	/*private Date dateOpen;*/
+	private Date dateOpen;
 	
 	/**
 	 * Constructs an account
@@ -21,7 +22,7 @@ public abstract class Account {
 	public Account(String _fname, String _lname, double _balance, int _month, int _day, int _year) {
 		this.holder = new Profile(_fname, _lname);
 		this.balance = _balance;
-		/*this.dateOpen = new Date(_month, _day, _year);*/
+		this.dateOpen = new Date(_month, _day, _year);
 	}
 	
 	/**
@@ -60,9 +61,9 @@ public abstract class Account {
 	 * Gets the open date of this account
 	 * @return	the open date
 	 */
-	/*public Date getOpenDate() {
-		return this.dateOpen
-	}*/
+	public Date getOpenDate() {
+		return this.dateOpen;
+	}
 	
 
 	/**
@@ -75,7 +76,7 @@ public abstract class Account {
 		DecimalFormat formattedPrice = new DecimalFormat(priceFormat);
 		formattedPrice.setMinimumFractionDigits(2);
 		
-		return String.format("*%s* %s*%s*", this.holder, formattedPrice.format(this.balance), "Nobody expects the Spanish Inquisition!"); //this.dateOpen);
+		return String.format("*%s* %s*%s*", this.holder, formattedPrice.format(this.balance), this.dateOpen);
 	}
 
 	/**
@@ -87,9 +88,7 @@ public abstract class Account {
 	public boolean equals(Object o) {
 		if (o instanceof Account) {
 			Account account = (Account) o;
-			return
-				(this.getProfile().equals(account.getProfile())) /*&&
-				(this.getOpenDate().equals(account.getOpenDate()))*/;
+			return this.getProfile().equals(account.getProfile());
 		} else {
 			return false;
 		}

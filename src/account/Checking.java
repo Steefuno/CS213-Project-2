@@ -1,3 +1,4 @@
+package account;
 /**
  * This class represents a checking account<br>
  * Checking accounts have a monthly fee of 25, a minimum balance of 1500 or direct deposit to waive the fee, and an annual interest rate of .05%

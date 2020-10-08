@@ -1,3 +1,4 @@
+package account;
 /**
  * This class represents a money market account<br>
  * Checking accounts have a monthly fee of 6, a minimum balance of 2500 unless the withdrawals has surpassed 6, and an annual interest rate of .65%
