@@ -414,6 +414,7 @@ public class TransactionManager {
 			break;
 			
 		case "OM":
+				
 			if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOM) {
 				break;
 			}
@@ -502,6 +503,7 @@ public class TransactionManager {
 			break;
 			
 		case "DC":
+				
 			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
