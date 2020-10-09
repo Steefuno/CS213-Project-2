@@ -217,14 +217,16 @@ public class TransactionManager {
 	* @return boolean value of string or null representing a bad input
 	*/
 	private Boolean convertStringToBoolean(String string) {
-		try {
-			return Boolean.parseBoolean(string);
+		if(string.equalsIgnoreCase("false")) {
+			return false;
 		}
-		catch(InputMismatchException e) {
-			
-			 System.out.println("Input data type mismatch.");
+		else if(string.equalsIgnoreCase("true")) {
+			return true;
 		}
-		return null;
+		else {
+			System.out.println("Input data type mismatch.");
+			return null;
+		}
 	}
 	
 	/**
@@ -374,7 +376,7 @@ public class TransactionManager {
 			date = args[4].split("/",3);
 			
 			isPresent = this.openChecking(validString(args[1]), validString(args[2]), convertStringToDouble(args[3]), convertStringToInteger(date[0]), 
-			convertStringToInteger(date[1]), convertStringToInteger(date[2]), convertStringToBoolean(args[4]));
+			convertStringToInteger(date[1]), convertStringToInteger(date[2]), convertStringToBoolean(args[5]));
 			
 			if(isPresent == false) {
 				System.out.println("Account is already in the database.");
@@ -392,7 +394,7 @@ public class TransactionManager {
 			}
 			
 			if (validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null || 
-			validDate(args[4]) == null) {
+			validDate(args[4]) == null || convertStringToBoolean(args[5])) {
 				break;
 			}
 			
@@ -400,7 +402,7 @@ public class TransactionManager {
 
 			
 			isPresent = this.openSaving(validString(args[1]), validString(args[2]), convertStringToDouble(args[3]), convertStringToInteger(date[0]), 
-			convertStringToInteger(date[1]), convertStringToInteger(date[2]), convertStringToBoolean(args[4]));
+			convertStringToInteger(date[1]), convertStringToInteger(date[2]), convertStringToBoolean(args[5]));
 			
 			if(isPresent == false) {
 				System.out.println("Account is already in the database.");
