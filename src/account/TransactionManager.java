@@ -258,7 +258,7 @@ public class TransactionManager {
 		String input;
 		try{
 			
-		    while(length != numberOfArguments){
+		    while(length < numberOfArguments){
 		         input = args[length];
 		         length++;     
 		    }
@@ -415,7 +415,7 @@ public class TransactionManager {
 			
 		case "OM":
 				
-			if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOM) {
+			if(checkNumberOfInputs(args, numberOfArgumentsForOM) != numberOfArgumentsForOM) {
 				break;
 			}
 			
