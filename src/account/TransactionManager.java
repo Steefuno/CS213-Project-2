@@ -365,7 +365,7 @@ public class TransactionManager {
 	
 		switch(command) {
 		case "OC":
-		if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOCandOS) {
+		if(checkNumberOfInputs(args, args.length() != numberOfArgumentsForOCandOS) {
 			break;
 		}
 			if (validString(args[1]) == null || validString(args[2]) == null || convertStringToDouble(args[3]) == null || 
@@ -389,7 +389,7 @@ public class TransactionManager {
 			
 		case "OS":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForOCandOS) != numberOfArgumentsForOCandOS) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForOCandOS) {
 				break;
 			}
 			
@@ -415,7 +415,7 @@ public class TransactionManager {
 			
 		case "OM":
 				
-			if(checkNumberOfInputs(args, numberOfArgumentsForOM) != numberOfArgumentsForOM) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForOM) {
 				break;
 			}
 			
@@ -441,7 +441,7 @@ public class TransactionManager {
 			
 		case "CC":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForClose) != numberOfArgumentsForClose) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForClose) {
 				break;
 			}
 			
@@ -462,7 +462,7 @@ public class TransactionManager {
 			
 		case "CS":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForClose) != numberOfArgumentsForClose) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForClose) {
 				break;
 			}
 			
@@ -483,7 +483,7 @@ public class TransactionManager {
 			
 		case "CM":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForClose) != numberOfArgumentsForClose) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForClose) {
 				break;
 			}
 			
@@ -504,7 +504,7 @@ public class TransactionManager {
 			
 		case "DC":
 				
-			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
 			
@@ -525,7 +525,7 @@ public class TransactionManager {
 			
 		case "DS":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
 			
@@ -545,7 +545,7 @@ public class TransactionManager {
 			break;
 		case "DM":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
 			
@@ -566,7 +566,7 @@ public class TransactionManager {
 			
 		case "WC":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
 			
@@ -587,7 +587,7 @@ public class TransactionManager {
 			break;
 			
 		case "WS":
-			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
 			
@@ -611,7 +611,7 @@ public class TransactionManager {
 			
 		case "WM":
 			
-			if(checkNumberOfInputs(args, numberOfArgumentsForDepositAndWithdraw) != numberOfArgumentsForDepositAndWithdraw) {
+			if(checkNumberOfInputs(args, args.length()) != numberOfArgumentsForDepositAndWithdraw) {
 				break;
 			}
 			
