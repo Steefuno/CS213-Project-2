@@ -37,7 +37,6 @@ public class Savings extends Account {
 	 * Constructs a temporary savings account used for comparisons
 	 * @param _fname	the first name of the profile
 	 * @param _lname	the last name of the profile
-	 * @override
 	 */
 	public Savings(String _fname, String _lname) {
 		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);

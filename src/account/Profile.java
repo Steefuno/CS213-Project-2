@@ -36,7 +36,6 @@ public class Profile {
 	/**
 	 * Gets if an object is equal to this profile
 	 * @return	true if the other object is a profile with the same name, false otherwise
-	 * @overload
 	 */
 	public boolean equals(Object o) {
 		if (o instanceof Profile) {

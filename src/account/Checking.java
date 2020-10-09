@@ -36,7 +36,6 @@ public class Checking extends Account {
 	 * @param _fname	the first name of the profile
 	 * @param _lname	the last name of the profile
 	 */
-	@Override
 	public Checking(String _fname, String _lname) {
 		super(_fname, _lname, fillerBalance, fillerMonth, fillerDay, fillerYear);
 		this.directDeposit = fillerDirectDeposit;
